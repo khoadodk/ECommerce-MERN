@@ -11,3 +11,26 @@ exports.userById = (req, res, next, id) => {
     next();
   });
 };
+
+exports.read = (req, res) => {
+  req.profile.hashed_password = undefined;
+  req.profile.salt = undefined;
+  return res.json(req.profile);
+};
+
+exports.update = (req, res) => {
+  User.findOneAndUpdate(
+    { _id: req.profile._id },
+    { $set: req.body },
+    { new: true },
+    (err, updatedUser) => {
+      if (err)
+        return res.status(400).json({
+          error: 'User not found'
+        });
+      updatedUser.hashed_password = undefined;
+      updatedUser.salt = undefined;
+      res.json(updatedUser);
+    }
+  );
+};
