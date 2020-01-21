@@ -10,8 +10,9 @@ const app = express();
 
 mongoose
   .connect(process.env.MONGODB_URL, {
-    useCreateIndex: true,
     useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
     useUnifiedTopology: true
   })
   .then(() => {
@@ -23,7 +24,9 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(expressValidator());
 
+const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
+app.use('/api', authRoutes);
 app.use('/api', userRoutes);
 
 const port = process.env.PORT || 3000;
