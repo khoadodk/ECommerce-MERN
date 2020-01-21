@@ -6,7 +6,12 @@ const {
   create,
   productById,
   update,
-  remove
+  remove,
+  list,
+  listRelated,
+  listCategories,
+  listBySearch,
+  photo
 } = require('../controllers/product');
 
 //middleware routes
@@ -30,6 +35,15 @@ router.delete(
   remove
 );
 router.post('/product/create/:userId', requireSignin, isAuth, isAdmin, create);
+
+//Customed GET routes
+router.get('/products', list);
+router.get('products/related/:productId', listRelated);
+router.get('/products/categories', listCategories);
+router.get('/product/photo/:productId', photo);
+
+//Customed POST routes
+router.post('/products/by/search', listBySearch);
 
 //run the middleware finduserById when there is a param of :userId
 router.param('userId', userById);
