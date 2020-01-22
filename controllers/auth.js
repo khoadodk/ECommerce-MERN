@@ -26,14 +26,14 @@ exports.signin = (req, res) => {
   User.findOne({ email }, (err, user) => {
     if (err || !user) {
       return res.status(400).json({
-        error: 'User with that email does not exist. Please signup'
+        error: 'User with that email does not exist. Please register!'
       });
     }
     // if user is found make sure the email and password match
     // create authenticate method in user model
     if (!user.authenticate(password)) {
       return res.status(401).json({
-        error: 'Email and password dont match'
+        error: 'Email or password do not match'
       });
     }
     // generate a signed token with user id and secret
