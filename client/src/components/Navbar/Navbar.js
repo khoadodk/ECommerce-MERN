@@ -56,8 +56,42 @@ const Navbar = ({ history }) => {
             </>
           )}
 
-          {isAuthenticated() && (
+          {/* Admin Links */}
+          {isAuthenticated() && isAuthenticated().user.role === 1 && (
             <>
+              <li className="nav-item">
+                <Link
+                  to="/admin/dashboard"
+                  className="nav-link"
+                  style={isActive('/admin/dashboard')}
+                >
+                  {isAuthenticated().user.name}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/signin"
+                  className="nav-link"
+                  style={isActive('/signout')}
+                  onClick={() => signout()}
+                >
+                  Sign Out
+                </Link>
+              </li>
+            </>
+          )}
+          {/* User Links */}
+          {isAuthenticated() && isAuthenticated().user.role === 0 && (
+            <>
+              <li className="nav-item">
+                <Link
+                  to="/user/dashboard"
+                  className="nav-link"
+                  style={isActive('/user/dashboard')}
+                >
+                  {isAuthenticated().user.name}
+                </Link>
+              </li>
               <li className="nav-item">
                 <Link
                   to="/signin"
