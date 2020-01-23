@@ -5,7 +5,7 @@ import { isAuthenticated, signout } from '../../helpers/authFetch';
 const Navbar = ({ history }) => {
   const isActive = path => {
     if (history.location.pathname === path) {
-      return { color: '#000' };
+      return { color: '#007bff' };
     } else {
       return { color: '#fff' };
     }
@@ -29,7 +29,7 @@ const Navbar = ({ history }) => {
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
             <Link to="/" className="nav-link" style={isActive('/')}>
-              <i className="fa fa-home"></i>&nbsp;Shop
+              <i className="fa fa-home"></i>&nbsp;Home
             </Link>
           </li>
 

@@ -1,1 +1,24 @@
-
+/* Image Card */
+.card:hover {
+  -webkit-box-shadow: 6px 4px 5px 0px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 6px 4px 5px 0px rgba(0, 0, 0, 0.35);
+  box-shadow: 6px 4px 5px 0px rgba(0, 0, 0, 0.35);
+  transform: translateY(-2px);
+}
+.card-header {
+  background-color: #2b2626;
+  color: white;
+}
+.card-body {
+  background: #efefbb; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #d4d3dd,
+    #efefbb
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #d4d3dd,
+    #efefbb
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
