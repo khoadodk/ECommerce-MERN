@@ -32,6 +32,11 @@ const Navbar = ({ history }) => {
               <i className="fa fa-home"></i>&nbsp;Home
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/shop" className="nav-link" style={isActive('/shop')}>
+              Shop
+            </Link>
+          </li>
 
           {!isAuthenticated() && (
             <>

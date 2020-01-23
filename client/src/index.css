@@ -1,4 +1,7 @@
 /* Image Card */
+.card {
+  border: solid 1.5px black;
+}
 .card:hover {
   -webkit-box-shadow: 6px 4px 5px 0px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 6px 4px 5px 0px rgba(0, 0, 0, 0.35);
@@ -21,4 +24,5 @@
     #d4d3dd,
     #efefbb
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: cover;
 }

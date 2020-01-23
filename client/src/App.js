@@ -16,6 +16,7 @@ import PrivateRoute from './PrivateRoutes/PrivateRoute';
 import AdminDashboard from './components/AdminDashboard/AdminDashboard';
 import CreateCategory from './components/AdminDashboard/CreateCategory';
 import CreateProduct from './components/AdminDashboard/CreateProduct';
+import Shop from './components/Shop/Shop';
 
 const App = () => {
   return (
@@ -27,11 +28,13 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/signin" component={SignIn} />
+          <Route exat path="/shop" component={Shop} />
           <PrivateRoute
             exact
             path="/user/dashboard"
             component={UserDashboard}
           />
+
           {/* Admin Routes */}
           <AdminRoute
             exact

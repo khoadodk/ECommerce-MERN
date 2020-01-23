@@ -185,13 +185,15 @@ const CreateProduct = () => {
 
   const showLoading = () =>
     loading && (
-      <div className="alert alert-success">
-        <h2>Loading...</h2>
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
       </div>
     );
 
   return (
-    <div className="container w-50">
+    <div className="container w-50 text-center">
       <h1 className="p-3 text-center">New Product</h1>
       {showLoading()}
       {showSuccess()}
