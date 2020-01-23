@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { createCategory } from '../../helpers/admin';
-import { isAuthenticated } from '../../helpers/auth';
+import { createCategory } from '../../helpers/adminFetch';
+import { isAuthenticated } from '../../helpers/authFetch';
 
 const CreateCategory = () => {
   const [name, setName] = useState('');

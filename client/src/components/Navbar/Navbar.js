@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { isAuthenticated, signout } from '../../helpers/auth';
+import { isAuthenticated, signout } from '../../helpers/authFetch';
 
 const Navbar = ({ history }) => {
   const isActive = path => {
@@ -29,7 +29,7 @@ const Navbar = ({ history }) => {
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
             <Link to="/" className="nav-link" style={isActive('/')}>
-              Home
+              <i className="fa fa-home"></i>&nbsp;Shop
             </Link>
           </li>
 
@@ -75,7 +75,7 @@ const Navbar = ({ history }) => {
                   style={isActive('/signout')}
                   onClick={() => signout()}
                 >
-                  Sign Out
+                  <i className="fa fa-sign-out-alt"></i>
                 </Link>
               </li>
             </>
@@ -99,7 +99,7 @@ const Navbar = ({ history }) => {
                   style={isActive('/signout')}
                   onClick={() => signout()}
                 >
-                  Sign Out
+                  <i className="fa fa-sign-out-alt"></i>
                 </Link>
               </li>
             </>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { signin, authenticate } from '../../helpers/auth';
+import { signin, authenticate } from '../../helpers/authFetch';
 
 const Signin = () => {
   const [values, setValues] = useState({

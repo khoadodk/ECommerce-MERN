@@ -1,5 +1,5 @@
 import React from 'react';
-import { isAuthenticated } from '../../helpers/auth';
+import { isAuthenticated } from '../../helpers/authFetch';
 import { Link } from 'react-router-dom';
 
 const UserDashboard = () => {

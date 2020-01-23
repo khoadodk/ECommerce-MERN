@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { createProduct, getCategories } from '../../helpers/admin';
-import { isAuthenticated } from '../../helpers/auth';
+import { createProduct, getCategories } from '../../helpers/adminFetch';
+import { isAuthenticated } from '../../helpers/authFetch';
 
 const CreateProduct = () => {
   const [values, setValues] = useState({
