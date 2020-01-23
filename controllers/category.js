@@ -45,7 +45,8 @@ exports.update = (req, res) => {
 exports.create = (req, res) => {
   const category = new Category(req.body);
   category.save((err, data) => {
-    if (err) return res.status(400).json({ error: errorHandler(err) });
+    if (err)
+      return res.status(400).json({ error: 'The category already exists.' });
     res.json({ data });
   });
 };
