@@ -46,3 +46,26 @@ export const getFilteredProducts = (skip, limit, filters = {}) => {
       console.log(err);
     });
 };
+
+export const getSingleProduct = productId => {
+  return fetch(`${process.env.REACT_APP_API_URL}/product/${productId}`, {
+    method: 'GET'
+  })
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => console.log(err));
+};
+
+export const getRelatedProducts = productId => {
+  return fetch(
+    `${process.env.REACT_APP_API_URL}/products/related/${productId}`,
+    {
+      method: 'GET'
+    }
+  )
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => console.log(err));
+};

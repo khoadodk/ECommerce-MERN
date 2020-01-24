@@ -161,7 +161,9 @@ const CreateProduct = () => {
       >
         Back
       </Link>
-      <button className="btn btn-outline-primary float-right">Create</button>
+      <button className="btn btn-outline-primary float-right mb-3">
+        Create
+      </button>
     </form>
   );
 
@@ -193,7 +195,7 @@ const CreateProduct = () => {
     );
 
   return (
-    <div className="container w-50 text-center">
+    <div className="container w-50">
       <h1 className="text-center">New Product</h1>
       {showLoading()}
       {showSuccess()}

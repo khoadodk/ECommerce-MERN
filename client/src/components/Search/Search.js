@@ -45,7 +45,7 @@ const Search = () => {
     }
   };
 
-  console.log(results);
+  // console.log(results);
 
   const searchMessage = (searched, results) => {
     if (searched && results.length > 0) {
@@ -62,7 +62,9 @@ const Search = () => {
         <h2 className="mt-3 mb-3">{searchMessage(searched, results)}</h2>
         <div className="row">
           {results.map((product, i) => (
-            <Card key={i} product={product} />
+            <div className="col-4 mb-3" key={i}>
+              <Card product={product} />
+            </div>
           ))}
         </div>
       </div>

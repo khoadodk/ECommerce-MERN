@@ -7,12 +7,14 @@ const { errorHandler } = require('../helpers/dbErrorHandler');
 
 //Middlewares
 exports.productById = (req, res, next, id) => {
-  Product.findById(id).exec((err, product) => {
-    if (err || !product)
-      return res.status(400).json({ error: 'The product does not exist' });
-    req.product = product;
-    next();
-  });
+  Product.findById(id)
+    .populate('category')
+    .exec((err, product) => {
+      if (err || !product)
+        return res.status(400).json({ error: 'The product does not exist' });
+      req.product = product;
+      next();
+    });
 };
 
 exports.photo = (req, res, next) => {
@@ -146,12 +148,16 @@ exports.list = (req, res) => {
 //list all other products that in the same categories
 exports.listRelated = (req, res) => {
   let limit = req.query.limit ? parseInt(req.query.limit) : 6;
+
   Product.find({ _id: { $ne: req.product }, category: req.product.category })
     .limit(limit)
-    .populate('category', '_id')
+    .populate('category', '_id name')
     .exec((err, products) => {
-      if (err)
-        return res.status(400).json({ error: 'The products do not exist' });
+      if (err) {
+        return res.status(400).json({
+          error: 'Products not found'
+        });
+      }
       res.json(products);
     });
 };

@@ -53,9 +53,12 @@ const Home = () => {
         {showError()}
         <h2 className="mb-4">New Arrivals</h2>
         {showLoading()}
+
         <div className="row">
           {productsByArrival.map((product, i) => (
-            <Card key={i} product={product} />
+            <div className="col-4 mb-3" key={i}>
+              <Card product={product} />
+            </div>
           ))}
         </div>
 
@@ -63,7 +66,9 @@ const Home = () => {
         {showLoading()}
         <div className="row">
           {productsBySold.map((product, i) => (
-            <Card key={i} product={product} />
+            <div className="col-4 mb-3" key={i}>
+              <Card product={product} />
+            </div>
           ))}
         </div>
       </div>
