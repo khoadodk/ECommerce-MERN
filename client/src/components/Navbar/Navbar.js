@@ -37,6 +37,11 @@ const Navbar = ({ history }) => {
               Shop
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/search" className="nav-link" style={isActive('/search')}>
+              Search
+            </Link>
+          </li>
 
           {!isAuthenticated() && (
             <>

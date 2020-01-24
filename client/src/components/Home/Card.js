@@ -10,7 +10,9 @@ const Card = ({ product }) => {
         <div className="card-body">
           <Images item={product} />
           <p>{product.description.substring(0, 50)}</p>
-          <p>${product.price}</p>
+          <p>
+            <strong>${product.price}</strong>
+          </p>
           <Link to="/">
             <button className="btn btn-outline-primary m-2">View</button>
           </Link>

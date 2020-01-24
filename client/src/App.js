@@ -18,6 +18,7 @@ import AdminDashboard from './components/AdminDashboard/AdminDashboard';
 import CreateCategory from './components/AdminDashboard/CreateCategory';
 import CreateProduct from './components/AdminDashboard/CreateProduct';
 import Shop from './components/Shop/Shop';
+import Search from './components/Search/Search';
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/search" component={Search} />
           <PrivateRoute
             exact
             path="/user/dashboard"

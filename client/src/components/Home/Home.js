@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getProducts } from '../../helpers/userFetch';
 import Card from './Card';
+import Search from '../Search/Search';
 
 const Home = () => {
   const [productsBySold, setProductBySold] = useState([]);
@@ -47,22 +48,24 @@ const Home = () => {
     );
 
   return (
-    <div className="text-center m-3">
-      {showError()}
-      <h2 className="mb-4">New Arrivals</h2>
-      {showLoading()}
-      <div className="row">
-        {productsByArrival.map((product, i) => (
-          <Card key={i} product={product} />
-        ))}
-      </div>
+    <div className="m-3">
+      <div className="text-center mt-3">
+        {showError()}
+        <h2 className="mb-4">New Arrivals</h2>
+        {showLoading()}
+        <div className="row">
+          {productsByArrival.map((product, i) => (
+            <Card key={i} product={product} />
+          ))}
+        </div>
 
-      <h2 className="mb-4">Best Sellers</h2>
-      {showLoading()}
-      <div className="row">
-        {productsBySold.map((product, i) => (
-          <Card key={i} product={product} />
-        ))}
+        <h2 className="mb-4">Best Sellers</h2>
+        {showLoading()}
+        <div className="row">
+          {productsBySold.map((product, i) => (
+            <Card key={i} product={product} />
+          ))}
+        </div>
       </div>
     </div>
   );

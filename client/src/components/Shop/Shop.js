@@ -92,7 +92,7 @@ const Shop = () => {
         <h2>Filter By</h2>
       </div>
 
-      <div className="row justify-content-center">
+      <div className="row ml-3">
         <p>
           <strong>Categories:</strong>
         </p>
@@ -101,7 +101,7 @@ const Shop = () => {
           handleFilters={categoryIds => handleCategory(categoryIds)}
         />
       </div>
-      <div className="row justify-content-center mt-2">
+      <div className="row mt-2 ml-3">
         <p>
           <strong>Prices:</strong>
         </p>
@@ -110,9 +110,7 @@ const Shop = () => {
           handleFilters={priceId => handlePrice(priceId)}
         />
       </div>
-      <div className="text-center">
-        <h4>Results</h4>
-      </div>
+
       <div className="row m-3">
         {filteredResults.map((product, i) => (
           <Card key={i} product={product} />
