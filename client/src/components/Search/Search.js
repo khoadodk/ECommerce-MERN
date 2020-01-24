@@ -45,9 +45,11 @@ const Search = () => {
     }
   };
 
+  console.log(results);
+
   const searchMessage = (searched, results) => {
     if (searched && results.length > 0) {
-      return `Found ${results.length} products with "${search}" in the name.`;
+      return `Found ${results.length} products.`;
     }
     if (searched && results.length < 1) {
       return `No product found!`;

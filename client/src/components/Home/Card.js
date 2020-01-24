@@ -5,7 +5,7 @@ import Images from './Images';
 const Card = ({ product }) => {
   return (
     <div className="col-4 mb-3 text-center">
-      <div className="card">
+      <div className="card h-100">
         <div className="card-header">{product.name}</div>
         <div className="card-body">
           <Images item={product} />

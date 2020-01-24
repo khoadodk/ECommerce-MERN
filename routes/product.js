@@ -11,7 +11,8 @@ const {
   listRelated,
   listCategories,
   listBySearch,
-  photo
+  photo,
+  listSearch
 } = require('../controllers/product');
 
 //middleware routes
@@ -38,6 +39,7 @@ router.post('/product/create/:userId', requireSignin, isAuth, isAdmin, create);
 
 //Customed GET routes
 router.get('/products', list);
+router.get('/products/search', listSearch);
 router.get('products/related/:productId', listRelated);
 router.get('/products/categories', listCategories);
 router.get('/product/photo/:productId', photo);
