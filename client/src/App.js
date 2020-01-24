@@ -7,6 +7,7 @@ import Register from './components/Register/Register';
 import SignIn from './components/SignIn/SignIn';
 import Navbar from './components/Navbar/Navbar';
 import UserDashboard from './components/UserDashboard/UserDashboard';
+import About from './components/About/About';
 
 //PrivateRoutes folder
 import AdminRoute from './PrivateRoutes/AdminRoute';
@@ -28,7 +29,8 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/signin" component={SignIn} />
-          <Route exat path="/shop" component={Shop} />
+          <Route exact path="/shop" component={Shop} />
+          <Route exact path="/about" component={About} />
           <PrivateRoute
             exact
             path="/user/dashboard"

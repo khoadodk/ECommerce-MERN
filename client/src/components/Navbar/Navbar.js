@@ -12,7 +12,7 @@ const Navbar = ({ history }) => {
   };
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-      <Link className="navbar-brand" to="/">
+      <Link className="navbar-brand" to="/about">
         My Store <i className="fa fa-store"></i>
       </Link>
 
