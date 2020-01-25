@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { isAuthenticated, signout } from '../../helpers/authFetch';
+import { getItemTotal } from '../../helpers/cart';
 
 const Navbar = ({ history }) => {
   const isActive = path => {
@@ -10,6 +11,7 @@ const Navbar = ({ history }) => {
       return { color: '#fff' };
     }
   };
+
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
       <Link className="navbar-brand" to="/about">
@@ -40,6 +42,14 @@ const Navbar = ({ history }) => {
           <li className="nav-item">
             <Link to="/search" className="nav-link" style={isActive('/search')}>
               Search
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/cart" className="nav-link" style={isActive('/cart')}>
+              <i className="fa fa-shopping-cart"></i>&nbsp;
+              <sup>
+                <medium>{getItemTotal()}</medium>
+              </sup>
             </Link>
           </li>
 

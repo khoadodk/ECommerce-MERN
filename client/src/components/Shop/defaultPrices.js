@@ -22,7 +22,7 @@ export const defaultPrices = [
   {
     _id: 4,
     name: '$30-$39',
-    array: [20, 29]
+    array: [30, 39]
   },
   {
     _id: 5,

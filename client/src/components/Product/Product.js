@@ -27,8 +27,8 @@ const Product = ({ match }) => {
     });
   }, []);
 
-  console.log(product);
-  console.log(relatedProducts);
+  // console.log(product);
+  // console.log(relatedProducts);
   const showNoRelated = () => {
     return relatedProducts.length === 0 && <h4>No related products found.</h4>;
   };
@@ -36,7 +36,7 @@ const Product = ({ match }) => {
   return (
     <>
       <div className="m-2 d-flex justify-content-center">
-        <div className="col-4">
+        <div className="col-6">
           {product && product.description && (
             <Card product={product} showViewButton={false} />
           )}

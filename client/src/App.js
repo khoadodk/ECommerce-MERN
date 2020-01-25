@@ -20,6 +20,7 @@ import CreateProduct from './components/AdminDashboard/CreateProduct';
 import Shop from './components/Shop/Shop';
 import Search from './components/Search/Search';
 import Product from './components/Product/Product';
+import Cart from './components/Cart/Cart';
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
           <Route exact path="/about" component={About} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/product/:productId" component={Product} />
+          <Route exact path="/cart" component={Cart} />
           <PrivateRoute
             exact
             path="/user/dashboard"
