@@ -1,20 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { getOrders } from '../../helpers/adminFetch';
+import {
+  getOrders,
+  getStatusValues,
+  updateOrderStatus
+} from '../../helpers/adminFetch';
 import { isAuthenticated } from '../../helpers/authFetch';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const [statusValues, setStatusValues] = useState([]);
   const { user, token } = isAuthenticated();
 
   useEffect(() => {
+    //Get all orders
     getOrders(user._id, token).then(data => {
       if (data.error) {
         console.log(data.error);
       } else {
-        console.log(data);
+        // console.log(data);
         setOrders(data);
+      }
+    });
+
+    //Get order's status
+    getStatusValues(user._id, token).then(data => {
+      if (data.error) {
+        console.log(data.error);
+      } else {
+        // console.log(data);
+        setStatusValues(data);
       }
     });
   }, []);
@@ -28,35 +44,64 @@ const Orders = () => {
     </div>
   );
 
+  const handleStatusChange = (e, orderId) => {
+    updateOrderStatus(user._id, token, orderId, e.target.value).then(res => {
+      if (res.error) {
+        console.log('Status update failed');
+      } else {
+        getOrders(user._id, token).then(data => {
+          if (data.error) {
+            console.log(data.error);
+          } else {
+            // console.log(data);
+            setOrders(data);
+          }
+        });
+      }
+    });
+  };
+  const showStatus = order => (
+    <div className="form-group">
+      <h4 className="mark mb-2">Status: {order.status}</h4>
+      <select
+        className="form-control"
+        onChange={e => handleStatusChange(e, order._id)}
+      >
+        <option>Update Status</option>
+        {statusValues.map((status, i) => (
+          <option key={i} value={status}>
+            {status}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+
   return (
     <div>
       <h1 className="text-center mt-2">Total orders: {orders.length}</h1>
       {orders.map(o => {
         return (
-          <div className="row m-2">
+          <div className="row m-2" key={o._id}>
             <div className="col-6">
-              <div className="" key={o._id}>
-                <h4 className="mb-3 text-primary">
-                  <span className="">Order ID: {o._id}</span>
-                </h4>
+              <h4 className="mb-3 text-primary">
+                <span className="">Order ID: {o._id}</span>
+              </h4>
 
-                <ul className="list-group mb-2">
-                  <li className="list-group-item text-danger">
-                    <strong>{o.status}</strong>
-                  </li>
-                  <li className="list-group-item">
-                    Transaction ID: {o.transaction_id}
-                  </li>
-                  <li className="list-group-item">Amount: ${o.amount}</li>
-                  <li className="list-group-item">Ordered by: {o.user.name}</li>
-                  <li className="list-group-item">
-                    Ordered on: {moment(o.createdAt).fromNow()}
-                  </li>
-                  <li className="list-group-item">
-                    Delivery address: {o.address}
-                  </li>
-                </ul>
-              </div>
+              <ul className="list-group mb-2">
+                <li className="list-group-item text-danger">{showStatus(o)}</li>
+                <li className="list-group-item">
+                  Transaction ID: {o.transaction_id}
+                </li>
+                <li className="list-group-item">Amount: ${o.amount}</li>
+                <li className="list-group-item">Ordered by: {o.user.name}</li>
+                <li className="list-group-item">
+                  Ordered on: {moment(o.createdAt).fromNow()}
+                </li>
+                <li className="list-group-item">
+                  Delivery address: {o.address}
+                </li>
+              </ul>
             </div>
             <div className="col-6 m-auto">
               <h3 className="mt-4 mb-4 font-italic">
