@@ -85,7 +85,7 @@ const Navbar = ({ history }) => {
                   className="nav-link"
                   style={isActive('/admin/dashboard')}
                 >
-                  {isAuthenticated().user.name}
+                  <i className="fa fa-user-circle"></i>&nbsp;Admin
                 </Link>
               </li>
               <li className="nav-item">
@@ -109,6 +109,7 @@ const Navbar = ({ history }) => {
                   className="nav-link"
                   style={isActive('/user/dashboard')}
                 >
+                  <i className="fa fa-user-circle"></i>&nbsp;
                   {isAuthenticated().user.name}
                 </Link>
               </li>

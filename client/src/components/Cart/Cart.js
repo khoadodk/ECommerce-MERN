@@ -44,7 +44,7 @@ const Cart = () => {
     <div className="text-center m-3">
       <div className="">
         <h1>Your cart</h1>
-        <Checkout products={items} />
+        <Checkout products={items} setRender={setRender} render={render} />
       </div>
       <hr className="w-50" />
       <div className="mt-4">
