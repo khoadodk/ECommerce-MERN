@@ -10,7 +10,6 @@ exports.create = (req, res) => {
         error: errorHandler(error)
       });
     }
-    console.log(data);
     res.json(data);
   });
 };
