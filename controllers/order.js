@@ -13,3 +13,17 @@ exports.create = (req, res) => {
     res.json(data);
   });
 };
+
+exports.getOrders = (req, res) => {
+  Order.find()
+    .populate('user', '_id name address')
+    .sort('-createdAt')
+    .exec((error, orders) => {
+      if (error) {
+        return res.status(400).json({
+          error: errorHandler(error)
+        });
+      }
+      res.json(orders);
+    });
+};

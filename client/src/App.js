@@ -21,6 +21,7 @@ import Shop from './components/Shop/Shop';
 import Search from './components/Search/Search';
 import Product from './components/Product/Product';
 import Cart from './components/Cart/Cart';
+import Orders from './components/AdminDashboard/Order';
 
 const App = () => {
   return (
@@ -55,6 +56,7 @@ const App = () => {
             component={CreateCategory}
           />
           <AdminRoute exact path="/create/product" component={CreateProduct} />
+          <AdminRoute exact path="/admin/orders" component={Orders} />
         </Switch>
       </Router>
     </>
