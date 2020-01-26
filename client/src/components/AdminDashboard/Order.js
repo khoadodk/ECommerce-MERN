@@ -19,18 +19,23 @@ const Orders = () => {
     });
   }, []);
 
+  const showInput = (key, value) => (
+    <div className="input-group mb-2 mr-sm-2">
+      <div className="input-group-prepend">
+        <div className="input-group-text">{key}</div>
+      </div>
+      <input type="text" value={value} className="form-control" readOnly />
+    </div>
+  );
+
   return (
     <div>
       <h1 className="text-center mt-2">Total orders: {orders.length}</h1>
-      <div className="row">
-        <div className="col-md-8 offset-md-2">
-          {orders.map((o, oIndex) => {
-            return (
-              <div
-                className="mt-2"
-                key={oIndex}
-                style={{ borderBottom: '5px solid indigo' }}
-              >
+      {orders.map(o => {
+        return (
+          <div className="row m-2">
+            <div className="col-6">
+              <div className="" key={o._id}>
                 <h4 className="mb-3 text-primary">
                   <span className="">Order ID: {o._id}</span>
                 </h4>
@@ -51,15 +56,25 @@ const Orders = () => {
                     Delivery address: {o.address}
                   </li>
                 </ul>
-
-                <h3 className="mt-4 mb-4 font-italic">
-                  Total products in the order: {o.products.length}
-                </h3>
               </div>
-            );
-          })}
-        </div>
-      </div>
+            </div>
+            <div className="col-6 m-auto">
+              <h3 className="mt-4 mb-4 font-italic">
+                Total products in the order: {o.products.length}
+              </h3>
+              {o.products.map(p => (
+                <div key={p._id}>
+                  {showInput('Name', p.name)}
+                  {showInput('Price', `$${p.price}`)}
+                  {showInput('Count', p.count)}
+                  {showInput('ID', p._id)}
+                </div>
+              ))}
+            </div>
+            <hr style={{ borderBottom: '3px solid indigo', width: '50%' }} />
+          </div>
+        );
+      })}
     </div>
   );
 };
