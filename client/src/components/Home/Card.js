@@ -66,7 +66,7 @@ const Card = ({
           className="btn btn-outline-danger mt-2 mb-2"
           onClick={() => {
             removeItem(product._id, () => setRedirect(true));
-            setRender(!render);
+            setRender(!render); //re-render setItem in localstorage
           }}
         >
           Remove
@@ -78,7 +78,7 @@ const Card = ({
   // update cart functionality
 
   const handleChange = productId => e => {
-    setRender(!render);
+    setRender(!render); //re-render setItem in localstorage
     setCount(e.target.value < 1 ? 1 : e.target.value);
     if (e.target.value >= 1) {
       updateItem(productId, e.target.value);

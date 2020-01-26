@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import DropIn from 'braintree-web-drop-in-react'; //https://www.npmjs.com/package/braintree-web-drop-in-react
 import {
   processPayment,
-  getBraintreeClientToken
+  getBraintreeClientToken,
+  createOrder
 } from '../../helpers/userFetch';
 import { isAuthenticated } from '../../helpers/authFetch';
 import { emptyCart } from '../../helpers/cart';
@@ -46,7 +47,7 @@ const Checkout = ({ products, setRender = f => f, render = undefined }) => {
       <div>{showDropIn()}</div>
     ) : (
       <Link to="/signin">
-        <button className="btn btn-primary">Sign in to checkout</button>
+        <button className="btn btn-primary">Sign in here</button>
       </Link>
     );
   };
@@ -58,9 +59,9 @@ const Checkout = ({ products, setRender = f => f, render = undefined }) => {
     let nonce;
     let getNonce = data.instance
       .requestPaymentMethod()
-      .then(data => {
+      .then(res => {
         // console.log(data);
-        nonce = data.nonce;
+        nonce = res.nonce;
         // once you have nonce (card type, card number) send nonce as 'paymentMethodNonce'
         // and also total to be charged
         // console.log(
@@ -75,16 +76,22 @@ const Checkout = ({ products, setRender = f => f, render = undefined }) => {
 
         processPayment(userId, token, paymentData)
           .then(response => {
-            console.log(response);
+            // console.log(response);
             setData({ ...data, success: response.success });
+            // create order
+            const createOrderData = {
+              products: products,
+              transaction_id: response.transaction.id,
+              amount: response.transaction.amount,
+              address: data.address
+            };
+            createOrder(userId, token, createOrderData);
             // empty cart
             emptyCart(() => {
-              setRender(!render);
+              setRender(!render); // re-render localstorage
               console.log('payment success and empty cart');
-              setData({ loading: false });
+              setData({ loading: false, success: true });
             });
-
-            // create order
           })
           .catch(error => {
             console.log(error);
@@ -97,10 +104,22 @@ const Checkout = ({ products, setRender = f => f, render = undefined }) => {
       });
   };
 
+  const handleAddress = e => {
+    setData({ ...data, address: e.target.value });
+  };
   const showDropIn = () => (
     <div onBlur={() => setData({ ...data, error: '' })} className="w-50 m-auto">
       {data.clientToken !== null && products.length > 0 ? (
         <div>
+          <div className="form-group mb-3">
+            <label className="text-muted">Delivery Address:</label>
+            <textarea
+              className="form-control"
+              placeholder="Enter here"
+              value={data.address}
+              onChange={handleAddress}
+            />
+          </div>
           <DropIn
             options={{
               authorization: data.clientToken,

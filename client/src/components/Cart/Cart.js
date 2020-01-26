@@ -6,7 +6,7 @@ import Checkout from './Checkout';
 
 const Cart = () => {
   const [items, setItems] = useState([]);
-  const [render, setRender] = useState([]);
+  const [render, setRender] = useState(false);
 
   useEffect(() => {
     setItems(getCart());
