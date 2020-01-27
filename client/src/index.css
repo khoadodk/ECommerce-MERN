@@ -1,5 +1,7 @@
-#home {
-}
+/* #home {
+  background-image: url('/bg-img.jpg');
+  background-size: auto;
+} */
 /* Image Card */
 .card {
   border: solid 1.5px black;
@@ -46,7 +48,7 @@
   text-transform: uppercase;
   font-weight: 700;
   display: block;
-  background-image: linear-gradient(to right, #36b8fd, #094a6c);
+  background-image: linear-gradient(to right, #6b95c5, #007bff);
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 2px;
