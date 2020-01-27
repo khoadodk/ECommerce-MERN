@@ -1,11 +1,31 @@
-import React from 'react';
-import { isAuthenticated } from '../../helpers/authFetch';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
+
+import { isAuthenticated } from '../../helpers/authFetch';
+import { getPurchaseHistory } from '../../helpers/user';
 
 const UserDashboard = () => {
+  const [history, setHistory] = useState([]);
+
   const {
     user: { name, email, role, _id }
   } = isAuthenticated();
+  const token = isAuthenticated().token;
+
+  // console.log(_id);
+  // console.log(token);
+  // console.log(history);
+
+  useEffect(() => {
+    getPurchaseHistory(_id, token).then(data => {
+      if (data.error) {
+        console.log(data.error);
+      } else {
+        setHistory(data);
+      }
+    });
+  }, []);
 
   const userLinks = () => {
     return (
@@ -42,12 +62,31 @@ const UserDashboard = () => {
     );
   };
 
-  const purchaseHistory = () => {
+  const purchaseHistory = history => {
     return (
       <div className="card mb-5">
         <h3 className="card-header">Purchase history</h3>
         <ul className="list-group">
-          <li className="list-group-item">history</li>
+          <li className="list-group-item">
+            {history.map(h => {
+              return (
+                <div key={h._id}>
+                  <h3>Total Products:&nbsp;{h.products.length}</h3>
+                  <hr />
+                  {h.products.map(p => {
+                    return (
+                      <div key={p._id}>
+                        <h6>Name: {p.name}</h6>
+                        <h6>Price: ${p.price}</h6>
+                        <h6>Purchase Date: {moment(p.createdAt).fromNow()}</h6>
+                        <hr />
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </li>
         </ul>
       </div>
     );
@@ -58,7 +97,7 @@ const UserDashboard = () => {
       <div className="col-4">{userLinks()}</div>
       <div className="col-8">
         {userInfo()}
-        {purchaseHistory()}
+        {purchaseHistory(history)}
       </div>
     </div>
   );
