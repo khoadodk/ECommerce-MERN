@@ -12,11 +12,14 @@
   max-height: 80%;
   max-width: 80%;
 }
+.card {
+  transition: all 0.3s;
+}
 .card:hover {
   -webkit-box-shadow: 6px 4px 5px 0px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 6px 4px 5px 0px rgba(0, 0, 0, 0.35);
   box-shadow: 6px 4px 5px 0px rgba(0, 0, 0, 0.35);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.01);
 }
 .card-header {
   background-color: #2b2626;
@@ -52,4 +55,11 @@
 .title:hover {
   transform: skewY(2deg) scale(1.1);
   text-shadow: 0.5rem 1rem 2rem rgba(#000, 0.2);
+}
+
+.nav-link {
+  transition: all 0.2s;
+}
+.nav-link:hover {
+  transform: scale(1.1);
 }

@@ -43,7 +43,7 @@ const Product = ({ match }) => {
         </div>
       </div>
       <div className="text-center">
-        <h1>Related Products</h1>
+        <h1 className="title p-3">Related Products</h1>
         {showNoRelated()}
         <div className="row m-2">
           {relatedProducts.map(product => (

@@ -37,7 +37,7 @@ const Profile = ({ match }) => {
     updateUser(match.params.userId, token, { name, email, password }).then(
       data => {
         if (data.error) {
-          console.log(data.error);
+          alert(data.error);
         } else {
           updateUserLocalStorage(data, () => {
             setValues({
@@ -57,7 +57,7 @@ const Profile = ({ match }) => {
       className="alert alert-info"
       style={{ display: success ? '' : 'none' }}
     >
-      Your profile has been updated successful!
+      Your profile has been updated successfully!
     </div>
   );
 
@@ -84,7 +84,12 @@ const Profile = ({ match }) => {
 
       <div className="form-group">
         <label className="text-muted">Email</label>
-        <input defaultValue={email} type="email" className="form-control" />
+        <input
+          defaultValue={email}
+          type="email"
+          className="form-control"
+          disabled
+        />
       </div>
 
       <div className="form-group">

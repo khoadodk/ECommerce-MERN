@@ -4,7 +4,14 @@ const Home = () => {
   return (
     <div className="col-md-6 offset-md-3">
       <h4 className="pt-4 pb-3 text-center">MongoDB Express React Node</h4>
-
+      <p>
+        <strong>To test this app:</strong>
+        <ul>
+          <li>Admin: khoado.dk@gmail.com/test1234</li>
+          <li>User: dk.khoado@yahoo.com/test1234</li>
+          <li>Credit Card: 4111 1111 1111 1111 02/22</li>
+        </ul>
+      </p>
       <hr />
       <div>
         <h4>App features:</h4>

@@ -8,21 +8,25 @@ import SignIn from './components/SignIn/SignIn';
 import Navbar from './components/Navbar/Navbar';
 import UserDashboard from './components/UserDashboard/UserDashboard';
 import About from './components/About/About';
-
-//PrivateRoutes folder
-import AdminRoute from './PrivateRoutes/AdminRoute';
-import PrivateRoute from './PrivateRoutes/PrivateRoute';
-
-//AdminDashboard folder
-import AdminDashboard from './components/AdminDashboard/AdminDashboard';
-import CreateCategory from './components/AdminDashboard/CreateCategory';
-import CreateProduct from './components/AdminDashboard/CreateProduct';
 import Shop from './components/Shop/Shop';
 import Search from './components/Search/Search';
 import Product from './components/Product/Product';
 import Cart from './components/Cart/Cart';
-import Orders from './components/AdminDashboard/Order';
+
+//PrivateRoutes folder
+import PrivateRoute from './PrivateRoutes/PrivateRoute';
 import Profile from './components/UserDashboard/Profile';
+
+//AdminDashboard folder
+import AdminRoute from './PrivateRoutes/AdminRoute';
+import AdminDashboard from './components/AdminDashboard/AdminDashboard';
+import CreateCategory from './components/AdminDashboard/CreateCategory';
+import CreateProduct from './components/AdminDashboard/CreateProduct';
+import Orders from './components/AdminDashboard/Order';
+import ManageProducts from './components/AdminDashboard/ManageProducts';
+import ManageCategories from './components/AdminDashboard/ManageCategories';
+import UpdateCategory from './components/AdminDashboard/UpdateCategory';
+import UpdateProduct from './components/AdminDashboard/UpdateProduct';
 
 const App = () => {
   return (
@@ -58,6 +62,22 @@ const App = () => {
           />
           <AdminRoute exact path="/create/product" component={CreateProduct} />
           <AdminRoute exact path="/admin/orders" component={Orders} />
+          <AdminRoute exact path="/admin/products" component={ManageProducts} />
+          <AdminRoute
+            exact
+            path="/admin/product/update/:productId"
+            component={UpdateProduct}
+          />
+          <AdminRoute
+            exact
+            path="/admin/categories"
+            component={ManageCategories}
+          />
+          <AdminRoute
+            exact
+            path="/admin/category/update/:categoryId"
+            component={UpdateCategory}
+          />
         </Switch>
       </Router>
     </>
