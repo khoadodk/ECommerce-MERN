@@ -107,7 +107,7 @@ const Profile = ({ match }) => {
 
   return (
     <div className="container w-50">
-      <h1 className="text-center m-2">Profile update</h1>
+      <h1 className="title m-3 text-center">Profile update</h1>
       {showSuccess(success)}
       {showError(error)}
       {updateForm()}

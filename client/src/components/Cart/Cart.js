@@ -35,7 +35,7 @@ const Cart = () => {
 
   const noItemsMessage = () => (
     <div>
-      <h2>Your cart is empty.</h2>
+      <h2>Your cart is currently empty.</h2>
       <Link to="/shop">Continue shopping</Link>
     </div>
   );
@@ -43,7 +43,7 @@ const Cart = () => {
   return (
     <div className="text-center m-3">
       <div className="">
-        <h1>Your cart</h1>
+        <h1 className="title p-2">Your cart</h1>
         <Checkout products={items} setRender={setRender} render={render} />
       </div>
       <hr className="w-50" />

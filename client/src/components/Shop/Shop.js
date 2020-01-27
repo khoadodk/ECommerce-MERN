@@ -89,7 +89,7 @@ const Shop = () => {
   return (
     <div className="text-center">
       <div className=" m-3">
-        <h2>Filter By</h2>
+        <h1 className="title">Filter By</h1>
       </div>
 
       <div className="row ml-3">

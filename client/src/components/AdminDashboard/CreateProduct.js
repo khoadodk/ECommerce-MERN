@@ -196,7 +196,7 @@ const CreateProduct = () => {
 
   return (
     <div className="container w-50">
-      <h1 className="text-center">New Product</h1>
+      <h1 className="title p-2 text-center">New Product</h1>
       {showLoading()}
       {showSuccess()}
       {showError()}

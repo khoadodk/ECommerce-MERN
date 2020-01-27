@@ -106,23 +106,27 @@ const Card = ({
   return (
     <div className="card h-100 text-center">
       <div className="card-header">{product.name}</div>
-      <div className="card-body">
+      <div className="card-image">
         {shouldRedirect(redirect)}
         <Images item={product} />
+      </div>
+      <div className="column card-body">
         <p>{product.description.substring(0, 50)}</p>
-        <p>${product.price}</p>
+        <hr />
+        <h5>${product.price}</h5>
+        <hr />
         <p>Category: {product.category && product.category.name}</p>
+        <hr />
         <p>Added {moment(product.createdAt).fromNow()}</p>
 
-        {showStock(product.quantity)}
-        <br />
+        <div>{showStock(product.quantity)}</div>
+        <div>
+          {showViewProductButton(showViewButton)}
 
-        {showViewProductButton(showViewButton)}
+          {showAddToCart(showAddToCartButton)}
 
-        {showAddToCart(showAddToCartButton)}
-
-        {showRemoveButton(showRemoveProductButton)}
-
+          {showRemoveButton(showRemoveProductButton)}
+        </div>
         {showCartUpdateOptions(cartUpdate)}
       </div>
     </div>

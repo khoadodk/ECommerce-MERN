@@ -1,6 +1,16 @@
+#home {
+}
 /* Image Card */
 .card {
   border: solid 1.5px black;
+}
+.product-img {
+  background-color: aliceblue;
+  height: 30vh;
+}
+.product-img img {
+  max-height: 80%;
+  max-width: 80%;
 }
 .card:hover {
   -webkit-box-shadow: 6px 4px 5px 0px rgba(0, 0, 0, 0.35);
@@ -25,4 +35,21 @@
     #efefbb
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-size: cover;
+  height: 80%;
+}
+
+.title {
+  font-size: 35px;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: block;
+  background-image: linear-gradient(to right, #36b8fd, #094a6c);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+}
+.title:hover {
+  transform: skewY(2deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(#000, 0.2);
 }

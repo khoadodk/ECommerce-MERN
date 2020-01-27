@@ -66,7 +66,7 @@ const CreateCategory = () => {
 
   return (
     <div className="container w-50">
-      <h1 className="text-center">New Category</h1>
+      <h1 className="title m-3 text-center">New Category</h1>
       {showError()}
       {showSuccess()}
       {newCategoryForm()}

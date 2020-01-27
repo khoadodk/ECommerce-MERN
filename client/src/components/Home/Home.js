@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getProducts } from '../../helpers/userFetch';
 import Card from './Card';
-import Search from '../Search/Search';
 
 const Home = () => {
   const [productsBySold, setProductBySold] = useState([]);
@@ -48,28 +47,30 @@ const Home = () => {
     );
 
   return (
-    <div className="m-3">
-      <div className="text-center mt-3">
-        {showError()}
-        <h2 className="mb-4">New Arrivals</h2>
-        {showLoading()}
+    <div id="home">
+      <div className="p-3">
+        <div className="text-center mt-3">
+          {showError()}
+          <h1 className="mb-4 title">New Arrivals</h1>
+          {showLoading()}
 
-        <div className="row">
-          {productsByArrival.map((product, i) => (
-            <div className="col-4 mb-3" key={i}>
-              <Card product={product} />
-            </div>
-          ))}
-        </div>
+          <div className="row">
+            {productsByArrival.map((product, i) => (
+              <div className="col-4 mb-3" key={i}>
+                <Card product={product} />
+              </div>
+            ))}
+          </div>
 
-        <h2 className="mb-4">Best Sellers</h2>
-        {showLoading()}
-        <div className="row">
-          {productsBySold.map((product, i) => (
-            <div className="col-4 mb-3" key={i}>
-              <Card product={product} />
-            </div>
-          ))}
+          <h1 className="mb-4 title">Best Sellers</h1>
+          {showLoading()}
+          <div className="row">
+            {productsBySold.map((product, i) => (
+              <div className="col-4 mb-3" key={i}>
+                <Card product={product} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

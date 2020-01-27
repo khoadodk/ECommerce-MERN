@@ -76,7 +76,7 @@ const Orders = () => {
 
   return (
     <div>
-      <h1 className="text-center mt-2">Total orders: {orders.length}</h1>
+      <h1 className="text-center mt-2 title">Total orders: {orders.length}</h1>
       {orders.map(o => {
         return (
           <div className="row m-2" key={o._id}>

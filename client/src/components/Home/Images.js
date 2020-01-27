@@ -6,8 +6,7 @@ const Images = ({ item }) => {
       <img
         src={`${process.env.REACT_APP_API_URL}/product/photo/${item._id}`}
         alt={item.name}
-        className="mb-3"
-        style={{ maxHeight: '50%', maxWidth: '50%' }}
+        className="m-3"
       />
     </div>
   );
