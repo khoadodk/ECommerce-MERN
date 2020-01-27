@@ -22,6 +22,7 @@ import Search from './components/Search/Search';
 import Product from './components/Product/Product';
 import Cart from './components/Cart/Cart';
 import Orders from './components/AdminDashboard/Order';
+import Profile from './components/UserDashboard/Profile';
 
 const App = () => {
   return (
@@ -43,7 +44,7 @@ const App = () => {
             path="/user/dashboard"
             component={UserDashboard}
           />
-
+          <PrivateRoute exact path="/profile/:userId" component={Profile} />
           {/* Admin Routes */}
           <AdminRoute
             exact

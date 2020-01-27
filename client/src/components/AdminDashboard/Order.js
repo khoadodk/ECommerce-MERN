@@ -13,8 +13,7 @@ const Orders = () => {
   const [statusValues, setStatusValues] = useState([]);
   const { user, token } = isAuthenticated();
 
-  useEffect(() => {
-    //Get all orders
+  const loadOrders = () => {
     getOrders(user._id, token).then(data => {
       if (data.error) {
         console.log(data.error);
@@ -23,6 +22,11 @@ const Orders = () => {
         setOrders(data);
       }
     });
+  };
+
+  useEffect(() => {
+    //Get all orders
+    loadOrders();
 
     //Get order's status
     getStatusValues(user._id, token).then(data => {
@@ -49,14 +53,7 @@ const Orders = () => {
       if (res.error) {
         console.log('Status update failed');
       } else {
-        getOrders(user._id, token).then(data => {
-          if (data.error) {
-            console.log(data.error);
-          } else {
-            // console.log(data);
-            setOrders(data);
-          }
-        });
+        loadOrders();
       }
     });
   };
