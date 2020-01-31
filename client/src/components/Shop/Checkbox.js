@@ -19,15 +19,17 @@ const Checkbox = ({ categories, handleFilters }) => {
   };
 
   return categories.map(category => (
-    <li className="list-unstyled ml-5" key={category._id}>
-      <input
-        type="checkbox"
-        className="form-check-input"
-        //return false or true
-        value={checked.indexOf(category._id === -1)}
-        onChange={handleToggle(category._id)}
-      />
-      <label className="form-check-label">{category.name}</label>
+    <li className="list-unstyled ml-4" key={category._id}>
+      <div className="form-check">
+        <input
+          type="checkbox"
+          className="form-check-input "
+          onChange={handleToggle(category._id)}
+        />
+        <label className="form-check-label font-weight-bold">
+          {category.name}
+        </label>
+      </div>
     </li>
   ));
 };

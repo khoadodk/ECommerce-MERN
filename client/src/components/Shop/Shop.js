@@ -48,7 +48,6 @@ const Shop = () => {
       if (data.error) {
         setError(data.error);
       } else {
-        console.log(data.data);
         setFilteredResults([...filteredResults, ...data.data]);
         setSize(data.size);
         setSkip(toSkip);
@@ -88,23 +87,17 @@ const Shop = () => {
 
   return (
     <div className="text-center">
-      <div className=" m-3">
-        <h1 className="title">Filter By</h1>
+      <div className="m-3">
+        <h1 className="title">Filter By </h1>
       </div>
 
-      <div className="row ml-3">
-        <p>
-          <strong>Categories:</strong>
-        </p>
+      <div className="container-fluid ml-0 row mark d-flex justify-content-center align-content-center">
         <Checkbox
           categories={categories}
           handleFilters={categoryIds => handleCategory(categoryIds)}
         />
       </div>
-      <div className="row mt-2 ml-3">
-        <p>
-          <strong>Prices:</strong>
-        </p>
+      <div className="container-fluid ml-0 row  mark d-flex justify-content-center align-content-center">
         <RadioBox
           prices={defaultPrices}
           handleFilters={priceId => handlePrice(priceId)}
