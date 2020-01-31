@@ -5,7 +5,7 @@ import Card from '../Home/Card';
 const Product = ({ match }) => {
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
-  const { error, setError } = useState(false);
+  const { setError } = useState(false);
 
   useEffect(() => {
     const productId = match.params.productId;
@@ -25,7 +25,7 @@ const Product = ({ match }) => {
         });
       }
     });
-  }, []);
+  });
 
   // console.log(product);
   // console.log(relatedProducts);

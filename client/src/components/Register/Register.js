@@ -110,7 +110,7 @@ const Register = () => {
 
   return (
     <div className="container w-50">
-      <h1 className="p-3 text-center">Register</h1>
+      <h1 className="title">Register</h1>
       {showSuccess()}
       {showError()}
       {signUpForm()}

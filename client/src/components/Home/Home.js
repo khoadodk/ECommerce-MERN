@@ -47,31 +47,27 @@ const Home = () => {
     );
 
   return (
-    <div id="home">
-      <div className="p-3">
-        <div className="text-center mt-3">
-          {showError()}
-          <h1 className="mb-4 title">New Arrivals</h1>
-          {showLoading()}
+    <div>
+      {showError()}
+      <h1 className="title pt-3 pb-3">New Arrivals</h1>
+      {showLoading()}
 
-          <div className="row">
-            {productsByArrival.map((product, i) => (
-              <div className="col-4 mb-3" key={i}>
-                <Card product={product} />
-              </div>
-            ))}
+      <div className="container-fluid row m-0 p-0">
+        {productsByArrival.map((product, i) => (
+          <div className="col-4 mb-3" key={i}>
+            <Card product={product} />
           </div>
+        ))}
+      </div>
 
-          <h1 className="mb-4 title">Best Sellers</h1>
-          {showLoading()}
-          <div className="row">
-            {productsBySold.map((product, i) => (
-              <div className="col-4 mb-3" key={i}>
-                <Card product={product} />
-              </div>
-            ))}
+      <h1 className="title pt-3 pb-3">Best Sellers</h1>
+      {showLoading()}
+      <div className="container-fluid row m-0 p-0">
+        {productsBySold.map((product, i) => (
+          <div className="col-4 mb-3" key={i}>
+            <Card product={product} />
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );

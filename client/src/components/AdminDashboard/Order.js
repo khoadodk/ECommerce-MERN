@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import moment from 'moment';
 import {
   getOrders,
@@ -37,7 +36,7 @@ const Orders = () => {
         setStatusValues(data);
       }
     });
-  }, []);
+  });
 
   const showInput = (key, value) => (
     <div className="input-group mb-2 mr-sm-2">

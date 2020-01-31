@@ -19,7 +19,7 @@ const UpdateCategory = ({ match }) => {
         setName(data.name);
       }
     });
-  }, []);
+  });
 
   const handleChange = e => {
     setError('');

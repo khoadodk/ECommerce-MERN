@@ -25,7 +25,7 @@ const UserDashboard = () => {
         setHistory(data);
       }
     });
-  }, []);
+  });
 
   const userLinks = () => {
     return (

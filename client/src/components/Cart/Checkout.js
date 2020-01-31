@@ -34,6 +34,7 @@ const Checkout = ({ products, setRender = f => f, render = undefined }) => {
 
   useEffect(() => {
     getToken(userId, token);
+    // eslint-disable-next-line
   }, []);
 
   const getTotal = () => {
@@ -57,6 +58,7 @@ const Checkout = ({ products, setRender = f => f, render = undefined }) => {
     // send the nonce to your server
     // nonce = data.instance.requestPaymentMethod()
     let nonce;
+    // eslint-disable-next-line
     let getNonce = data.instance
       .requestPaymentMethod()
       .then(res => {

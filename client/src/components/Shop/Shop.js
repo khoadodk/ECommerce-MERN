@@ -12,12 +12,12 @@ const Shop = () => {
   const [myFilter, setMyFilter] = useState({
     filters: { category: [], price: [] }
   });
-  const [error, setError] = useState(false);
-  const [limit, setLimit] = useState(6);
+  const [setError] = useState(false);
+  const [limit] = useState(6);
   const [skip, setSkip] = useState(0);
   const [filteredResults, setFilteredResults] = useState([]);
   const [size, setSize] = useState(0);
-  //   console.log(myFilter);
+  console.log(myFilter.filters);
 
   useEffect(() => {
     //Get the categories from API
@@ -40,6 +40,7 @@ const Shop = () => {
         setSkip(0);
       }
     });
+    // eslint-disable-next-line
   }, [myFilter]);
 
   const loadMore = () => {
@@ -75,11 +76,13 @@ const Shop = () => {
 
   const handlePrice = priceId => {
     let priceRange = [];
+    // 1. loop over the keys in the defaultPrice and find the price range that match the id
     for (let key in defaultPrices) {
       if (defaultPrices[key]._id === parseInt(priceId)) {
         priceRange = defaultPrices[key].array;
       }
     }
+    // 2. set the price range in the existing filter
     let myNewFilter = { ...myFilter };
     myFilter.filters['price'] = priceRange;
     setMyFilter(myNewFilter);

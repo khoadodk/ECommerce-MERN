@@ -87,7 +87,7 @@ const Signin = () => {
 
   return (
     <div className="container w-50">
-      <h1 className="p-3 text-center">Sign In</h1>
+      <h1 className="title">Sign In</h1>
       {showLoading()}
       {showError()}
       {signUpForm()}

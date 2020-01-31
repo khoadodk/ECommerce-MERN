@@ -180,9 +180,7 @@ exports.listBySearch = (req, res) => {
   let limit = req.body.limit ? parseInt(req.body.limit) : 100;
   let skip = parseInt(req.body.skip);
   let findArgs = {};
-
   // console.log(order, sortBy, limit, skip, req.body.filters);
-  // console.log('findArgs', findArgs);
 
   for (let key in req.body.filters) {
     if (req.body.filters[key].length > 0) {
@@ -196,6 +194,8 @@ exports.listBySearch = (req, res) => {
       }
     }
   }
+  //{ category: [ '5e28f40052bf23398431bd17', ... ], price: { '$gte': 0, '$lte': 9 } }
+  console.log('findArgs', findArgs);
 
   Product.find(findArgs)
     .select('-photo')
