@@ -12,6 +12,8 @@
     "query-string": "^6.10.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-facebook-login": "^4.1.1",
+    "react-google-login": "^5.0.7",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "react-toastify": "^5.5.0"

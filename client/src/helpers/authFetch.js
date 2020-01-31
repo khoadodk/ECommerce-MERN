@@ -61,3 +61,19 @@ export const isAuthenticated = () => {
     return false;
   }
 };
+
+export const googleLogin = user => {
+  return fetch(`${process.env.REACT_APP_API_URL}/google-login`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(user)
+  })
+    .then(response => {
+      console.log('signin response: ', response);
+      return response.json();
+    })
+    .catch(err => console.log(err));
+};

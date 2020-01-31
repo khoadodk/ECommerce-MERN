@@ -17,7 +17,7 @@ const Shop = () => {
   const [skip, setSkip] = useState(0);
   const [filteredResults, setFilteredResults] = useState([]);
   const [size, setSize] = useState(0);
-  console.log(myFilter.filters);
+  // console.log(myFilter.filters);
 
   useEffect(() => {
     //Get the categories from API

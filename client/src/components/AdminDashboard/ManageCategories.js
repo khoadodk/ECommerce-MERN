@@ -49,12 +49,13 @@ const ManageCategories = () => {
                     </span>
                   </Link>
 
-                  <Link
-                    to=""
-                    className="badge badge-danger badge-pill"
-                    onClick={() => deleteCategoryButton(c._id)}
-                  >
-                    Delete
+                  <Link to={`/admin/categories`}>
+                    <span
+                      className="badge badge-danger badge-pill"
+                      onClick={() => deleteCategoryButton(c._id)}
+                    >
+                      Delete
+                    </span>
                   </Link>
                 </div>
               </li>
