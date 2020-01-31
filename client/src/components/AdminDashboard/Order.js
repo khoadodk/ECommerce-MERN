@@ -36,7 +36,8 @@ const Orders = () => {
         setStatusValues(data);
       }
     });
-  });
+    // eslint-disable-next-line
+  }, []);
 
   const showInput = (key, value) => (
     <div className="input-group mb-2 mr-sm-2">

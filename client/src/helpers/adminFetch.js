@@ -153,7 +153,7 @@ export const getProducts = () => {
     .catch(err => console.log(err));
 };
 
-export const deleteProduct = (userId, token, productId) => {
+export const deleteProduct = (productId, userId, token) => {
   return fetch(
     `${process.env.REACT_APP_API_URL}/product/${productId}/${userId}`,
     {

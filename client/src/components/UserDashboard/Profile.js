@@ -25,7 +25,8 @@ const Profile = ({ match }) => {
         setValues({ ...values, name: data.name, email: data.email });
       }
     });
-  });
+    // eslint-disable-next-line
+  }, []);
 
   const handleChange = name => event => {
     // console.log(event.target.value);

@@ -19,6 +19,7 @@ const ManageProducts = () => {
 
   useEffect(() => {
     loadProducts();
+    // eslint-disable-next-line
   }, []);
 
   const deleteProductButton = productId => {
@@ -51,7 +52,7 @@ const ManageProducts = () => {
                   <Link
                     to=""
                     className="badge badge-danger badge-pill"
-                    onClick={() => deleteProductButton()}
+                    onClick={() => deleteProductButton(p._id)}
                   >
                     Delete
                   </Link>

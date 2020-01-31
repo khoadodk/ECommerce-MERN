@@ -50,7 +50,8 @@ const CreateProduct = () => {
 
   useEffect(() => {
     init();
-  });
+    // eslint-disable-next-line
+  }, []);
 
   const handleChange = name => event => {
     const value = name === 'photo' ? event.target.files[0] : event.target.value;

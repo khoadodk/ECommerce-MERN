@@ -22,6 +22,7 @@ const Search = () => {
         setData({ ...data, categories: data });
       }
     });
+    // eslint-disable-next-line
   }, []);
 
   const handleChange = name => event => {

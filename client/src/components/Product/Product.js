@@ -25,7 +25,8 @@ const Product = ({ match }) => {
         });
       }
     });
-  });
+    // eslint-disable-next-line
+  }, []);
 
   // console.log(product);
   // console.log(relatedProducts);

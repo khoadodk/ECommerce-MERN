@@ -19,10 +19,11 @@ const ManageCategories = () => {
 
   useEffect(() => {
     loadCategories();
+    // eslint-disable-next-line
   }, []);
 
-  const deleteCategoryButton = productId => {
-    deleteCategory(productId, user._id, token).then(data => {
+  const deleteCategoryButton = categoryId => {
+    deleteCategory(user._id, token, categoryId).then(data => {
       if (data.error) {
         console.log(data.error);
       } else {
@@ -51,7 +52,7 @@ const ManageCategories = () => {
                   <Link
                     to=""
                     className="badge badge-danger badge-pill"
-                    onClick={() => deleteCategoryButton()}
+                    onClick={() => deleteCategoryButton(c._id)}
                   >
                     Delete
                   </Link>

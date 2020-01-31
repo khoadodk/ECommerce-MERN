@@ -25,7 +25,8 @@ const UserDashboard = () => {
         setHistory(data);
       }
     });
-  });
+    // eslint-disable-next-line
+  }, []);
 
   const userLinks = () => {
     return (

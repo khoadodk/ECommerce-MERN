@@ -19,7 +19,8 @@ const UpdateCategory = ({ match }) => {
         setName(data.name);
       }
     });
-  });
+    // eslint-disable-next-line
+  }, []);
 
   const handleChange = e => {
     setError('');

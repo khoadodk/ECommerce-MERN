@@ -33,6 +33,7 @@ const Home = () => {
   useEffect(() => {
     loadProductsByArrival();
     loadProductsBySold();
+    // eslint-disable-next-line
   }, []);
 
   const showError = () => error && <h2>Fail to load!</h2>;
