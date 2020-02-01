@@ -4,6 +4,8 @@ const expressJwt = require('express-jwt'); // for authorization check
 const { errorHandler } = require('../helpers/dbErrorHandler');
 const { OAuth2Client } = require('google-auth-library');
 const fetch = require('node-fetch');
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 exports.signup = (req, res) => {
   // console.log("req.body", req.body);
@@ -129,4 +131,106 @@ exports.googleLogin = (req, res) => {
         });
       }
     });
+};
+
+//Similar to sign up
+exports.forgotPassword = (req, res) => {
+  const { email } = req.body;
+
+  User.findOne({ email }, (err, user) => {
+    if (err || !user) {
+      return res.status(400).json({
+        error: 'User with that email does not exist'
+      });
+    }
+
+    const token = jwt.sign(
+      { _id: user._id, name: user.name },
+      process.env.JWT_RESET_PASSWORD,
+      {
+        expiresIn: '30m'
+      }
+    );
+
+    const emailData = {
+      from: process.env.EMAIL_FROM,
+      to: email,
+      subject: `Password Reset link`,
+      html: `
+              <h1>Please use the following link to reset your password</h1>
+              <p>${process.env.CLIENT_URL}/auth/password/reset/${token}</p>
+              <hr />
+              <p>This email may contain sensitive information</p>
+              
+          `
+    };
+
+    return user.updateOne({ resetPasswordLink: token }, (err, success) => {
+      if (err) {
+        // console.log('RESET PASSWORD LINK ERROR', err);
+        return res.status(400).json({
+          error: 'Database connection error on user password forgot request'
+        });
+      } else {
+        sgMail
+          .send(emailData)
+          .then(sent => {
+            // console.log('SIGNUP EMAIL SENT', sent)
+            return res.json({
+              message: `Email has been sent to ${email}. Follow the instruction to reset your password.`
+            });
+          })
+          .catch(err => {
+            // console.log('SIGNUP EMAIL SENT ERROR', err)
+            return res.json({
+              message: err.message
+            });
+          });
+      }
+    });
+  });
+};
+
+//Similar to accountActivation
+exports.resetPassword = (req, res) => {
+  const { resetPasswordLink, newPassword } = req.body;
+  // 1.Check if token is available and verify with the backend
+  if (resetPasswordLink) {
+    jwt.verify(
+      resetPasswordLink,
+      process.env.JWT_RESET_PASSWORD,
+      (err, decoded) => {
+        if (err) {
+          // console.log('jwt RESET PASSWORD error', err);
+          res
+            .status(401)
+            .json({ error: 'Expired link. Please reset password again' });
+        }
+        // 2. Find the user in the database from the token
+        User.findOne({ resetPasswordLink }, (err, user) => {
+          if (err) {
+            return res.status(401).json({
+              error: 'Could not find the token in the database'
+            });
+          }
+          const updatedFields = {
+            password: newPassword,
+            resetPasswordLink: ''
+          };
+          //use Lodash to deep clone the object instead of Object.assign
+          user = Object.assign(user, updatedFields);
+          user.save((err, results) => {
+            if (err) {
+              return res.status(401).json({
+                error: 'Fail to updated the user password'
+              });
+            }
+            res.json({ message: 'Your password has been updated!' });
+          });
+        });
+      }
+    );
+  } else {
+    return res.json({ message: 'Reset token is not found' });
+  }
 };

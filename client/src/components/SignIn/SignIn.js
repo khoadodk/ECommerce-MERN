@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { signin, authenticate } from '../../helpers/authFetch';
-import Google from '../Google/Google';
+// import Google from '../Google/Google';
 
 const Signin = () => {
   const [values, setValues] = useState({
@@ -56,6 +56,12 @@ const Signin = () => {
           value={password}
         />
       </div>
+      <div>
+        <p>
+          Don't remember your password?
+          <Link to="/auth/password/forgot">&nbsp;Click here!</Link>
+        </p>
+      </div>
       <button onClick={clickSubmit} className="btn btn-primary float-right">
         Submit
       </button>
@@ -100,9 +106,9 @@ const Signin = () => {
       <h1 className="title">Sign In</h1>
       {showLoading()}
       {showError()}
-      <div className="text-center">
+      {/* <div className="text-center">
         <Google informParent={informParent} />
-      </div>
+      </div> */}
 
       {signUpForm()}
       {redirectUser()}

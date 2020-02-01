@@ -77,3 +77,33 @@ export const googleLogin = user => {
     })
     .catch(err => console.log(err));
 };
+
+export const forgotPasswordFetch = email => {
+  return fetch(`${process.env.REACT_APP_API_URL}/forgot-password`, {
+    method: 'PUT',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(email)
+  })
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => console.log(err));
+};
+
+export const resetPasswordFetch = data => {
+  return fetch(`${process.env.REACT_APP_API_URL}/reset-password`, {
+    method: 'PUT',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => console.log(err));
+};

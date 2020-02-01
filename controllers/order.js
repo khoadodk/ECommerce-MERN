@@ -67,7 +67,7 @@ exports.create = (req, res) => {
     // order.products.length
     // order.amount
     const emailData = {
-      to: 'khoado.dk@gmail.com', // admin
+      to: process.env.EMAIL_TO, // admin
       from: 'noreply@ecommerce.com',
       subject: `A new order is received`,
       html: `

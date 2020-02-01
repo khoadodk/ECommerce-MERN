@@ -27,6 +27,8 @@ import ManageProducts from './components/AdminDashboard/ManageProducts';
 import ManageCategories from './components/AdminDashboard/ManageCategories';
 import UpdateCategory from './components/AdminDashboard/UpdateCategory';
 import UpdateProduct from './components/AdminDashboard/UpdateProduct';
+import ForgotPage from './components/ForgotPage/ForgotPage';
+import ResetPage from './components/ResetPage/ResetPage';
 
 const App = () => {
   return (
@@ -43,6 +45,12 @@ const App = () => {
           <Route exact path="/search" component={Search} />
           <Route exact path="/product/:productId" component={Product} />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path="/auth/password/forgot" component={ForgotPage} />
+          <Route
+            exact
+            path="/auth/password/reset/:token"
+            component={ResetPage}
+          />
           <PrivateRoute
             exact
             path="/user/dashboard"
