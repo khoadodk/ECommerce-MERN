@@ -46,7 +46,7 @@ const Cart = () => {
         <h1 className="title p-2">Your cart</h1>
         <Checkout products={items} setRender={setRender} render={render} />
       </div>
-      <hr className="w-50" />
+
       <div className="mt-4">
         {items.length > 0 ? showItems(items) : noItemsMessage()}
       </div>

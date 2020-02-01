@@ -1,6 +1,11 @@
-body {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+body {
   background-color: rgb(233, 229, 229);
 }
 /* Image Card */
@@ -71,4 +76,26 @@ body {
 }
 .nav-link:hover {
   transform: scale(1.1);
+}
+
+/* Responsive */
+html {
+  /* 1rem= 18px*/
+  font-size: 100%;
+}
+/* bigphone */
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 66%;
+  }
+  .title {
+    font-size: 25px;
+  }
+  .card-container {
+    display: block;
+  }
+  .card {
+    width: 60vw;
+    left: 17.5vw;
+  }
 }

@@ -53,7 +53,7 @@ const Home = () => {
       <h1 className="title pt-3 pb-3">New Arrivals</h1>
       {showLoading()}
 
-      <div className="container-fluid row m-0 p-0">
+      <div className="container-fluid row m-0 p-0 card-container">
         {productsByArrival.map((product, i) => (
           <div className="col-4 mb-3" key={i}>
             <Card product={product} />
@@ -63,7 +63,7 @@ const Home = () => {
 
       <h1 className="title pt-3 pb-3">Best Sellers</h1>
       {showLoading()}
-      <div className="container-fluid row m-0 p-0">
+      <div className="container-fluid row m-0 p-0 card-container">
         {productsBySold.map((product, i) => (
           <div className="col-4 mb-3" key={i}>
             <Card product={product} />

@@ -17,6 +17,7 @@ const Home = () => {
         <h4>App features:</h4>
         <ul className="ml-5">
           <li>Login/Signup system</li>
+          <li>Forgot/Reset password via email</li>
           <li>User/Admin dashboard</li>
           <li>CRUD products/categories in Admin dashboard</li>
           <li>Products filtered by category or price</li>

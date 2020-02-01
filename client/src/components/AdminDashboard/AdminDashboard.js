@@ -64,7 +64,7 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="row p-5">
+    <div className="row p-5 card-container">
       <div className="col-4">{adminLinks()}</div>
       <div className="col-8">{adminInfo()}</div>
     </div>

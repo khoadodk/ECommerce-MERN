@@ -92,14 +92,14 @@ const Signin = () => {
     }
   };
 
-  const informParent = response => {
-    authenticate(response, () => {
-      setValues({
-        ...values,
-        redirectToReferrer: true
-      });
-    });
-  };
+  // const informParent = response => {
+  //   authenticate(response, () => {
+  //     setValues({
+  //       ...values,
+  //       redirectToReferrer: true
+  //     });
+  //   });
+  // };
 
   return (
     <div className="container w-50">

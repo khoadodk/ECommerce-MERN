@@ -17,6 +17,7 @@ const ResetPage = ({ match }) => {
     if (token) {
       setValues({ ...values, name, token });
     }
+    // eslint-disable-next-line
   }, []);
 
   const { name, token, newPassword, error, success } = values;

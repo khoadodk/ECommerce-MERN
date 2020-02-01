@@ -167,7 +167,7 @@ const Checkout = ({ products, setRender = f => f, render = undefined }) => {
     );
 
   return (
-    <div>
+    <div className="container-fluid ">
       <h2>Total: ${getTotal()}</h2>
       {showLoading(data.loading)}
       {showSuccess(data.success)}

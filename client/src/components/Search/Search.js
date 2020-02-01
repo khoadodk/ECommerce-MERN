@@ -61,7 +61,7 @@ const Search = () => {
     return (
       <div className="mt-3 text-center">
         <h2 className="mt-3 mb-3">{searchMessage(searched, results)}</h2>
-        <div className="row">
+        <div className="row card-container">
           {results.map((product, i) => (
             <div className="col-4 mb-3" key={i}>
               <Card product={product} />
