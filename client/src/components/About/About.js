@@ -6,13 +6,6 @@ const Home = () => {
     <div className="col-md-6 offset-md-3">
       <h4 className="pt-4 pb-3 text-center">MongoDB Express React Node</h4>
 
-      <strong>To test this app:</strong>
-      <ul>
-        <li>Admin: khoado.dk@gmail.com/test1234</li>
-        <li>User: user@email.com/test1234</li>
-        <li>Credit Card: 4111 1111 1111 1111 02/22</li>
-      </ul>
-
       <hr />
       <div>
         <h4>App features:</h4>
@@ -20,11 +13,12 @@ const Home = () => {
           <li>Login/Signup system</li>
           <li>Forgot/Reset password via email</li>
           <li>User/Admin dashboard</li>
-          <li>CRUD products/categories in Admin dashboard</li>
-          <li>Products filtered by category or price</li>
+          <li>CRUD products, categories</li>
+          <li>Products filtered by search, category and price</li>
           <li>Product page with related products</li>
           <li>Shopping cart</li>
           <li>Payment with PayPal</li>
+          <li>Order notification</li>
         </ul>
       </div>
 
