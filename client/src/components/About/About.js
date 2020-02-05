@@ -8,7 +8,7 @@ const Home = () => {
 
       <hr />
       <div>
-        <h4>App features:</h4>
+        <h3>App features:</h3>
         <ul className="ml-5">
           <li>Login/Signup system</li>
           <li>Forgot/Reset password via email</li>
