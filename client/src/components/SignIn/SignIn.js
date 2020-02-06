@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { signin, authenticate } from '../../helpers/authFetch';
-// import Google from '../Google/Google';
+import Google from '../Google/Google';
 
 const Signin = () => {
   const [values, setValues] = useState({
@@ -92,23 +92,23 @@ const Signin = () => {
     }
   };
 
-  // const informParent = response => {
-  //   authenticate(response, () => {
-  //     setValues({
-  //       ...values,
-  //       redirectToReferrer: true
-  //     });
-  //   });
-  // };
+  const informParent = response => {
+    authenticate(response, () => {
+      setValues({
+        ...values,
+        redirectToReferrer: true
+      });
+    });
+  };
 
   return (
     <div className="container w-50">
       <h1 className="title">Sign In</h1>
       {showLoading()}
       {showError()}
-      {/* <div className="text-center">
+      <div className="text-center">
         <Google informParent={informParent} />
-      </div> */}
+      </div>
 
       {signUpForm()}
       {redirectUser()}
