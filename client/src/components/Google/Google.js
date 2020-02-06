@@ -21,7 +21,6 @@ const Google = ({ informParent = func => func }) => {
         clientId={`${process.env.REACT_APP_GOOGLE_CLIENT_ID}`}
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
-        cookiePolicy={'single_host_origin'}
       />
     </div>
   );
