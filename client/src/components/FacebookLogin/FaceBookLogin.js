@@ -4,7 +4,7 @@ import { facebookLogin } from '../../helpers/authFetch';
 
 const Facebook = ({ informParent = func => func }) => {
   const responseFacebook = response => {
-    console.log(response);
+    // console.log(response);
 
     facebookLogin({
       userID: response.userID,
@@ -33,7 +33,7 @@ const Facebook = ({ informParent = func => func }) => {
         //     <i className="fab fa-facebook pr-2"></i> Sign In with FaceBook
         //   </button>
         // )}
-        icon="fa-facebook"
+        // icon="fa-facebook"
       />
     </div>
   );
