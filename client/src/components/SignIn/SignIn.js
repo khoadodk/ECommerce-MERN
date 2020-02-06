@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { signin, authenticate } from '../../helpers/authFetch';
 import Google from '../Google/Google';
+import Facebook from '../FacebookLogin/FaceBookLogin';
 
 const Signin = () => {
   const [values, setValues] = useState({
@@ -108,6 +109,7 @@ const Signin = () => {
       {showError()}
       <div className="text-center">
         <Google informParent={informParent} />
+        <Facebook informParent={informParent} />
       </div>
 
       {signUpForm()}
