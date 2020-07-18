@@ -30,7 +30,7 @@
     "formidable": "^1.2.1",
     "google-auth-library": "^5.9.2",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mongoose": "^5.7.8",
     "morgan": "^1.9.1",
     "node-fetch": "^2.6.0",
