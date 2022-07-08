@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^7.2.1",
     "braintree-web-drop-in-react": "^1.1.0",
     "jsonwebtoken": "^8.5.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "query-string": "^6.10.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
